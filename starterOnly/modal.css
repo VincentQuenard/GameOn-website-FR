@@ -140,7 +140,7 @@ main {
 }
 
 /* Modal form */
-
+/*CLASSE BUTTON RETIREE CAR FAIT DOUBLON AVEC BTN
 .button {
   background: #fe142f;
   margin-top: 0.5em;
@@ -153,7 +153,7 @@ main {
 
 .button:hover {
   background: #3876ac;
-}
+}*/
 
 .smFont {
   font-size: 16px;
@@ -335,6 +335,10 @@ input[data-error]::after {
   cursor: pointer;
   border: 0;
 }
+.btn-submit:hover {
+  background: #3876ac;
+}
+
 /* custom select styles */
 .custom-select {
   position: relative;
@@ -501,8 +505,8 @@ footer {
     white-space: normal;
   }
   .hero-text {
-    width: 310px;
-    font-size: 1.5rem;
+    width: 300px;
+    font-size: 1.3rem;
   }
   .hero-img img {
     border-radius: 10px;
