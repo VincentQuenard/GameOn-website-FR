@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <title>Reservation</title>
@@ -35,25 +35,15 @@
       <!--Contenu principal de la page-->
       <div class="hero-section">
         <div class="hero-content">
-          <h1 class="hero-headline">
-            Marathon national<br>
-            de jeux vidéos
-          </h1>
-          <p class="hero-text">
-            Vous aimez jouer ? Notre prochain évènement gaming est ouvert
-            aux réservations... Places limitées !
-          </p>
-          <button class="btn-signup modal-btn">
-            je m'inscris
-          </button>
+          <h1 class="hero-headline">Marathon national<br />de jeux vidéos</h1>
+          <p class="hero-text">Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux réservations... Places limitées !</p>
+          <button class="btn-signup modal-btn">je m'inscris</button>
         </div>
         <div class="hero-img">
           <img src="./bg_img.jpg" alt="img" />
         </div>
         <!--Bouton pour ouvrir le formulaire d'inscription-->
-        <button class="btn-signup modal-btn">
-          je m'inscris
-        </button>
+        <button class="btn-signup modal-btn">je m'inscris</button>
         <!--------------------------------------------------->
       </div>
       <!--Activation lors du clic sur bouton d'inscription, changement couleur de fond du site-->
@@ -73,61 +63,52 @@
               method="get"
               onsubmit="return validate();"
             >
-              <div
-                class="formData">
-                <label>Prénom</label><br>
+              <div class="formData">
+                <label for="first">Prénom</label><br />
                 <input
                   class="text-control"
-                  type="text"
-                  id="first"
-                  name="first"
-                  minlength="2"
-                /><br>
+                  type="text" id="first" name="first" minlength="2" required
+                /><br />
               </div>
-              <div
-                class="formData">
-                <label>Nom</label><br>
+
+              <div class="formData">
+                <label for="last">Nom</label><br />
                 <input
                   class="text-control"
-                  type="text"
-                  id="last"
-                  name="last"
-                /><br>
+                  type="text" id="last" name="last" minlength="2" required
+                /><br />
               </div>
-              <div
-                class="formData">
-                <label>E-mail</label><br>
+
+              <div class="formData">
+                <label for="email">E-mail</label><br />
                 <input
                   class="text-control"
-                  type="email"
-                  id="email"
-                  name="email"
-                /><br>
+                  type="email" id="email" name="email" required
+                  /><br />
               </div>
-              <div
-                class="formData">
-                <label>Date de naissance</label><br>
+
+              <div class="formData">
+                <label for="birthdate">Date de naissance</label><br />
                 <input
                   class="text-control"
-                  type="date"
-                  id="birthdate"
-                  name="birthdate"
-                /><br>
+                  type="date" id="birthdate" name="birthdate" required/><br />
               </div>
-              <div
-                class="formData">
-                <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+
+              <div class="formData">
+                <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br />
+                <input type="number" class="text-control" 
+                id="quantity" name="quantity" min="0" max="99" required>
               </div>
+
               <p class="text-label">Quelles villes ?</p>
-              <div
-                class="formData">
+
+              <div class="formData">
                 <input
                   class="checkbox-input"
                   type="radio"
                   id="location1"
                   name="location"
-                  value="New York"
+                  value="New York" checked
                 />
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
@@ -190,24 +171,22 @@
                 >
               </div>
 
-              <div
-                class="formData">
+              <div class="formData">
                 <input
                   class="checkbox-input"
                   type="checkbox"
-                  id="checkbox1" checked required
-                />
+                  id="checkbox1" checked required />
                 <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
-                <br>
+                <br />
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
                   Je souhaite être prévenu des prochains évènements.
                 </label>
-                <br>
+                <br /> 
               </div>
               <input
                 class="btn-submit"

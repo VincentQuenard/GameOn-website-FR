@@ -12,7 +12,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const buttonClose = document.querySelector(".close");
-const formClose = document.querySelector(".bground")
+//const formClose = document.querySelector(".bground")
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -26,7 +26,7 @@ function launchModal() {
 buttonClose.addEventListener("click",closeModal);
 
 //Close modal click out event
-formClose.addEventListener("click",closeModal);
+//formClose.addEventListener("click",closeModal);
 
 //Close modal form
 function closeModal() {
@@ -34,6 +34,17 @@ function closeModal() {
 
 }
 
-
+function checkcgu()
+{
+ if (document.getElementById('checkbox1').checked)
+ {
+  return true;
+ }
+ else
+ {
+  alert('Vous devez accepter les conditions d\'utilisation.');
+  return false;
+ }
+}
 
 
