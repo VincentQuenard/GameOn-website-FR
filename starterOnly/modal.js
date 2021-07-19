@@ -13,6 +13,7 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const buttonClose = document.querySelector(".close");
 //const formClose = document.querySelector(".bground")
+const focuscgu = document.getElementById('checkbox1');
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -34,9 +35,11 @@ function closeModal() {
 
 }
 
+
+focuscgu.addEventListener("click",checkcgu);
 function checkcgu()
 {
- if (document.getElementById('checkbox1').checked)
+ if (focuscgu.checked)
  {
   return true;
  }
@@ -46,5 +49,22 @@ function checkcgu()
   return false;
  }
 }
+
+
+
+/*squelette pour s'inspirer pour onsubmit : y mettre tous les champs et boutons ?
+function valider(){
+  // si la valeur du champ prenom est non vide
+  if(document.formSaisie.prenom.value != "") {
+    // les données sont ok, on peut envoyer le formulaire    
+    return true;
+  }
+  else {
+    // sinon on affiche un message
+    alert("Saisissez le prénom");
+    // et on indique de ne pas envoyer le formulaire
+    return false;
+  }
+}*/
 
 
