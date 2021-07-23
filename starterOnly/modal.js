@@ -26,8 +26,9 @@ const focuscgu = document.getElementById('checkbox1');
 
 //Regex
 const regexLettres = /^[a-zA-Z-\s]+$/;
+const regNombres = /^[0-9]+$/;
 const regexMessagerie = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
-
+const regexDateNaissance = /^(0[1-9]|[12][0-9]|3[01])[\/](0[1-9]|1[012])[\/](19|20)\d\d$/;
 // listener bouton ouverture formulaire
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -49,7 +50,7 @@ function closeModal() {
 }
 //Vérifications formulaires
 
-
+function validate(){
 //verification champ prénom non vide
 prenom.addEventListener("change",checkPrenom);
 function checkPrenom()
@@ -81,6 +82,8 @@ function checkNom()
 };
 
 //verification email valide
+//La méthode exec() de RegExp va rechercher des correspondances entre
+// une expression régulière et une chaine de caractères.
 messagerie.addEventListener("change",checkMail)
 function checkMail (){
   if (regexMessagerie.exec(messagerie.value) == null)
@@ -94,16 +97,36 @@ function checkMail (){
  }
 };
 
-  
-
 
 //verification date de naissance valide
-
-
+naissance.addEventListener("change",checkAnniversaire)
+function checkAnniversaire(){
+  if (regexDateNaissance.exec(naissance.value) == null)
+  {
+    alert('Veuillez entrer une date de naissance valide');
+    return false;
+  }
+  else
+  {
+    return
+  }
+}
 
 //verification nombre de tournois compris entre 0 et 99
 
-
+nombre_tournois.addEventListener("change",tournois);
+function tournois()
+{
+   if (nombre_tournois.value.length >=0)
+ {
+    return true
+ }
+ else
+ {
+  alert('Vous devez entrer plus de 2 charactères dans le champ nom');
+  return false;
+ }
+};
 
 //Vérification si une des villes est cochée
 /*ville.addEventListener("click", checkville)
@@ -140,7 +163,7 @@ function checkcgu()
   return false;
  }
 }
-
+}
 
 /*squelette pour s'inspirer pour onsubmit : y mettre tous les champs et boutons ?
 function valider(){
