@@ -28,7 +28,7 @@ const focuscgu = document.getElementById('checkbox1');
 const regexLettres = /^[a-zA-Z-\s]+$/;
 const regNombres = /^[0-9]+$/;
 const regexMessagerie = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
-const regexDateNaissance = /^(0[1-9]|[12][0-9]|3[01])[\/](0[1-9]|1[012])[\/](19|20)\d\d$/;
+const regexDateNaissance = /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/;
 // listener bouton ouverture formulaire
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -50,7 +50,7 @@ function closeModal() {
 }
 //Vérifications formulaires
 
-function validate(){
+
 //verification champ prénom non vide
 prenom.addEventListener("change",checkPrenom);
 function checkPrenom()
@@ -117,7 +117,7 @@ function checkAnniversaire(){
 nombre_tournois.addEventListener("change",tournois);
 function tournois()
 {
-   if (nombre_tournois.value.length >=0)
+   if (nombre_tournois.value.length >=1)
  {
     return true
  }
@@ -163,7 +163,7 @@ function checkcgu()
   return false;
  }
 }
-}
+
 
 /*squelette pour s'inspirer pour onsubmit : y mettre tous les champs et boutons ?
 function valider(){
