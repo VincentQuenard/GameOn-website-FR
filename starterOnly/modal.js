@@ -23,6 +23,11 @@ const nombre_tournois = document.getElementById('quantity');
 const ville = document.getElementsByName('location')
 const focuscgu = document.getElementById('checkbox1');
 
+
+//Regex
+const regexLettres = /^[a-zA-Z-\s]+$/;
+const regexMessagerie = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+
 // listener bouton ouverture formulaire
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -46,12 +51,12 @@ function closeModal() {
 
 
 //verification champ prénom non vide
-prenom.addEventListener("change",checkprenom);
-function checkprenom()
+prenom.addEventListener("change",checkPrenom);
+function checkPrenom()
 {
    if (prenom.value.length <2)
  {
-  alert('Vous devez entrer plus de 2 charactères');
+  alert('Vous devez entrer plus de 2 charactères dans le champ prénom');
   return false;
  }
  else
@@ -61,22 +66,47 @@ function checkprenom()
 }
 
 //verification champ nom non vide
-nom.addEventListener("change",checknom);
-function checknom()
+nom.addEventListener("change",checkNom);
+function checkNom()
 {
    if (nom.value.length <2)
  {
-  alert('Vous devez entrer plus de 2 charactères');
+  alert('Vous devez entrer plus de 2 charactères dans le champ nom');
   return false;
  }
  else
  {
   return true;
  }
-}
+};
+
+//verification email valide
+messagerie.addEventListener("change",checkMail)
+function checkMail (){
+  if (regexMessagerie.exec(messagerie.value) == null)
+  {
+    alert('Veuillez entrer une adresse de messagerie valide');
+  return false;
+ }
+ else
+ {
+  return true;
+ }
+};
+
+  
+
+
+//verification date de naissance valide
+
+
+
+//verification nombre de tournois compris entre 0 et 99
+
+
 
 //Vérification si une des villes est cochée
-ville.addEventListener("click", checkville);
+/*ville.addEventListener("click", checkville)
 function checkville()
 {
   console.log(ville)
@@ -89,7 +119,7 @@ function checkville()
   alert('Vous devez cocher une ville');
   return false;
  }
-}
+}*/
 
 
 
@@ -128,9 +158,9 @@ function valider(){
 }*/
 
 //idée validation button submit .....qui ne ....fonctionne pas
-const envoyer = document.querySelector(".btn-submit");
+/*const envoyer = document.querySelector(".btn-submit");
 
 envoyer.addEventListener('click', (e) => {
   e.preventDefault();
   alert('merci !');
-})
+})*/
