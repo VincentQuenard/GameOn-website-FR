@@ -20,7 +20,6 @@ const nom = document.getElementById('last');
 const messagerie = document.getElementById('email');
 const naissance = document.getElementById('birthdate');
 const nombre_tournois = document.getElementById('quantity');
-const ville = document.getElementsByName('location')
 const focuscgu = document.getElementById('checkbox1');
 
 
@@ -65,7 +64,6 @@ function checkPrenom()
   return true;
  }
 }
-
 //verification champ nom non vide
 nom.addEventListener("change",checkNom);
 function checkNom()
@@ -128,24 +126,9 @@ function tournois()
  }
 };
 
-//Vérification si une des villes est cochée
-/*ville.addEventListener("click", checkville)
-function checkville()
-{
-  console.log(ville)
- if (ville.checked)
- {
-  return true;
- }
- else
- {
-  alert('Vous devez cocher une ville');
-  return false;
- }
-}*/
+//Un bouton radio est séléctionné par défaut
 
-
-
+document.querySelector('#location1').checked = true;
 
 
 
