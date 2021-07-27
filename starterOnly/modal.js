@@ -113,18 +113,29 @@ function checkAnniversaire(){
 //verification nombre de tournois compris entre 0 et 99
 
 nombre_tournois.addEventListener("change",tournois);
-function tournois()
-{
-   if (nombre_tournois.value.length >=1)
+function tournois(){
+
+  if (nombre_tournois.value.length <1)
+  {
+   alert('Vous devez entrer un nombre dans ce champ');
+   return false;
+  }
+  else
+  {
+   return true;
+  }
+  /* if (nombre_tournois.value !== "" && isNaN(nombre_tournois.value) == false )
  {
-    return true
+    return true;
  }
- else
- {
-  alert('Vous devez entrer plus de 2 charactères dans le champ nom');
-  return false;
- }
-};
+ else if(nombre_tournois.value == "") {
+   alert('Ce champ ne peut pas être vide')
+   return false;
+  } else if(isNaN(nombre_tournois.value) == true){
+    alert ('Vous devez entrer un nombre')
+    return false;
+  } */
+  };
 
 //Un bouton radio est séléctionné par défaut
 
