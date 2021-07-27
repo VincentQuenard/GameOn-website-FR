@@ -16,11 +16,17 @@ const buttonClose = document.querySelector(".close");
 
 //sélection des balises du formulaires
 const prenom = document.getElementById('first');
+const erreur_prenom = document.getElementById('erreur_prenom');
 const nom = document.getElementById('last');
+const erreur_nom = document.getElementById('erreur_nom');
 const messagerie = document.getElementById('email');
+const erreur_messagerie = document.getElementById('erreur_email');
 const naissance = document.getElementById('birthdate');
+const erreur_naissance = document.getElementById('erreur_anniversaire');
 const nombre_tournois = document.getElementById('quantity');
+const erreur_nbTournois = document.getElementById('erreur_nombre');
 const focuscgu = document.getElementById('checkbox1');
+const erreur_cgu = document.getElementById('erreur_cgu');
 
 
 //Regex
@@ -49,7 +55,7 @@ function closeModal() {
 }
 //Vérifications formulaires
 
-
+//function validate(){ NE FONCTIONNE PAS.....
 //verification champ prénom non vide
 prenom.addEventListener("change",checkPrenom);
 function checkPrenom()
@@ -77,7 +83,7 @@ function checkNom()
  {
   return true;
  }
-};
+}; 
 
 //verification email valide
 //La méthode exec() de RegExp va rechercher des correspondances entre
@@ -158,6 +164,7 @@ function checkcgu()
  }
 }
 
+//} ACCOLADE FIN FONCTION ONSUBMIT NE FONCTIONNANT PAS
 
 /*squelette pour s'inspirer pour onsubmit : y mettre tous les champs et boutons ?
 function valider(){
@@ -181,3 +188,15 @@ envoyer.addEventListener('click', (e) => {
   e.preventDefault();
   alert('merci !');
 })*/
+
+
+
+
+
+/* IDEE TROUVEE POUR SIMPLIFIER CODE JS ET MESSAGE SOUS CHAMP : 
+
+if (constante = document.queryetc.value ===0 || constante.value.lengh<=x){
+  constante erreur.textContent = "Veuillez blah blah blah"
+}else{
+  constante erreur.textContent ="" //vide car OK utilisateur à fait ce que demandé
+}  */
