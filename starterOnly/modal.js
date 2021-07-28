@@ -27,6 +27,7 @@ const nombre_tournois = document.getElementById('quantity');
 const erreur_nbTournois = document.getElementById('erreur_nombre');
 const focuscgu = document.getElementById('checkbox1');
 const erreur_cgu = document.getElementById('erreur_cgu');
+const formulaire = document.getElementsByName('reserve')
 
 
 //Regex
@@ -54,13 +55,19 @@ function closeModal() {
 
 }
 //Vérifications formulaires
-
-//function validate(){ NE FONCTIONNE PAS.....
+//on écoute le submit    VALIDATE NE FONCTIONNE PAS..........
+/*formulaire.addEventListener("submit", validate)
+function validate(e){ */
 //verification champ prénom non vide
 prenom.addEventListener("change",checkPrenom);
 function checkPrenom()
 {
-   if (prenom.value.length <2)
+  if (prenom.value ===0 || prenom.value.length <=2)//le prénom est vide ou à moins de 2 charactères
+  {erreur_prenom.textContent="Le prénom doit comporter 2 charactères minimum."
+}else{
+  erreur_prenom.textContent="" //pas d'erreur donc pas de message
+};
+  /* if (prenom.value.length <2)
  {
   alert('Vous devez entrer plus de 2 charactères dans le champ prénom');
   return false;
@@ -68,21 +75,17 @@ function checkPrenom()
  else
  {
   return true;
- }
+ }*/
 }
 //verification champ nom non vide
 nom.addEventListener("change",checkNom);
 function checkNom()
 {
-   if (nom.value.length <2)
- {
-  alert('Vous devez entrer plus de 2 charactères dans le champ nom');
-  return false;
- }
- else
- {
-  return true;
- }
+  if (nom.value ===0 || nom.value.length <=2)//le prénom est vide ou à moins de 2 charactères
+  {erreur_nom.textContent="Le nom doit comporter 2 charactères minimum."
+}else{
+  erreur_nom.textContent="" //pas d'erreur donc pas de message
+};
 }; 
 
 //verification email valide
@@ -163,8 +166,8 @@ function checkcgu()
   return false;
  }
 }
-
-//} ACCOLADE FIN FONCTION ONSUBMIT NE FONCTIONNANT PAS
+e.preventDefault();
+//} 
 
 /*squelette pour s'inspirer pour onsubmit : y mettre tous les champs et boutons ?
 function valider(){
