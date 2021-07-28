@@ -63,7 +63,9 @@ prenom.addEventListener("change",checkPrenom);
 function checkPrenom()
 {
   if (prenom.value ===0 || prenom.value.length <=2)//le prénom est vide ou à moins de 2 charactères
-  {erreur_prenom.textContent="Le prénom doit comporter 2 charactères minimum."
+  {erreur_prenom.textContent="Le prénom doit comporter 2 charactères minimum.";
+  erreur_prenom.style.fontSize = "16px";
+  erreur_prenom.style.color = "pink";
 }else{
   erreur_prenom.textContent="" //pas d'erreur donc pas de message
 };
@@ -83,6 +85,8 @@ function checkNom()
 {
   if (nom.value ===0 || nom.value.length <=2)//le prénom est vide ou à moins de 2 charactères
   {erreur_nom.textContent="Le nom doit comporter 2 charactères minimum."
+  erreur_nom.style.fontSize = "16px";
+  erreur_nom.style.color = "pink";
 }else{
   erreur_nom.textContent="" //pas d'erreur donc pas de message
 };
@@ -100,6 +104,8 @@ function checkMail (){
   }
   else{// Caractère absent ou ne répondant pas aux conditions du regex
     erreur_messagerie.textContent ="Veuillez entrer une adresse de messagerie valide";
+    erreur_messagerie.style.fontSize = "16px";
+    erreur_messagerie.style.color = "pink";
       }
   /*if (regexMessagerie.exec(messagerie.value) == null)
   {
@@ -117,11 +123,13 @@ function checkMail (){
 naissance.addEventListener("change",checkAnniversaire)
 function checkAnniversaire(){
   if(regexDateNaissance.test(naissance.value)){// test regex ok
-    eerreur_naissance.textContent ="";
+    erreur_naissance.textContent ="";
     // Pas d'erreur
     }
   else{// Caractère absent ou ne répondant pas aux conditions du regex
     erreur_naissance.textContent ="Veuillez entrer une date de naissance valide";
+    erreur_naissance.style.fontSize = "16px";
+    erreur_naissance.style.color = "pink";
     }
  /* if (regexDateNaissance.exec(naissance.value) == null)
   {
@@ -140,7 +148,9 @@ nombre_tournois.addEventListener("change",tournois);
 function tournois(){
 
   if (nombre_tournois.value === "")
-  { erreur_nbTournois.textContent="Vous devez entrer un nombre dans ce champ"
+  {erreur_nbTournois.textContent="Vous devez entrer un nombre dans ce champ";
+  erreur_nbTournois.style.fontSize = "16px";
+  erreur_nbTournois.style.color = "pink";
      }
   else
   {
@@ -176,9 +186,11 @@ function checkcgu()
  else
  {
   erreur_cgu.textContent="Vous devez accepter les conditions d'utilisation";
+  erreur_cgu.style.fontSize = "16px";
+  erreur_cgu.style.color = "pink";
  }
 }
-e.preventDefault();
+//e.preventDefault();
 //} 
 
 /*squelette pour s'inspirer pour onsubmit : y mettre tous les champs et boutons ?
