@@ -93,7 +93,15 @@ function checkNom()
 // une expression régulière et une chaine de caractères.
 messagerie.addEventListener("change",checkMail)
 function checkMail (){
-  if (regexMessagerie.exec(messagerie.value) == null)
+  if(regexMessagerie.test(messagerie.value)){// test regex ok
+    erreur_messagerie.textContent ="";
+    // Pas d'erreur
+ 
+  }
+  else{// Caractère absent ou ne répondant pas aux conditions du regex
+    erreur_messagerie.textContent ="Veuillez entrer une adresse de messagerie valide";
+      }
+  /*if (regexMessagerie.exec(messagerie.value) == null)
   {
     alert('Veuillez entrer une adresse de messagerie valide');
   return false;
@@ -101,14 +109,21 @@ function checkMail (){
  else
  {
   return true;
- }
+ }*/
 };
 
 
 //verification date de naissance valide
 naissance.addEventListener("change",checkAnniversaire)
 function checkAnniversaire(){
-  if (regexDateNaissance.exec(naissance.value) == null)
+  if(regexDateNaissance.test(naissance.value)){// test regex ok
+    eerreur_naissance.textContent ="";
+    // Pas d'erreur
+    }
+  else{// Caractère absent ou ne répondant pas aux conditions du regex
+    erreur_naissance.textContent ="Veuillez entrer une date de naissance valide";
+    }
+ /* if (regexDateNaissance.exec(naissance.value) == null)
   {
     alert('Veuillez entrer une date de naissance valide');
     return false;
@@ -116,7 +131,7 @@ function checkAnniversaire(){
   else
   {
     return
-  }
+  }*/
 }
 
 //verification nombre de tournois compris entre 0 et 99
@@ -124,14 +139,12 @@ function checkAnniversaire(){
 nombre_tournois.addEventListener("change",tournois);
 function tournois(){
 
-  if (nombre_tournois.value.length <1)
-  {
-   alert('Vous devez entrer un nombre dans ce champ');
-   return false;
-  }
+  if (nombre_tournois.value === "")
+  { erreur_nbTournois.textContent="Vous devez entrer un nombre dans ce champ"
+     }
   else
   {
-   return true;
+    erreur_nbTournois.textContent=""
   }
   /* if (nombre_tournois.value !== "" && isNaN(nombre_tournois.value) == false )
  {
@@ -158,12 +171,11 @@ function checkcgu()
 {
  if (focuscgu.checked)
  {
-  return true;
+  erreur_cgu.textContent="";
  }
  else
  {
-  alert('Vous devez accepter les conditions d\'utilisation.');
-  return false;
+  erreur_cgu.textContent="Vous devez accepter les conditions d'utilisation";
  }
 }
 e.preventDefault();
