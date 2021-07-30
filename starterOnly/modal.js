@@ -33,7 +33,10 @@ const villePortland = document.getElementById('location6');
 const erreur_ville = document.getElementById('erreur_ville');
 const focuscgu = document.getElementById('checkbox1');
 const erreur_cgu = document.getElementById('erreur_cgu');
-const formulaire = document.getElementById('formulaire')
+const formulaire = document.getElementById('formulaire');
+const envoi_formulaire = document.querySelector('.btn-submit');
+const container_formulaire = document.querySelector('.modal-body');
+const bouton_fermer = document.querySelector('.btn-fermer')
 
 
 //Regex
@@ -148,4 +151,21 @@ focuscgu.checked === true
 }
 
 
+//Envoi formulaire au clic sur c'est parti si tout le formulaire est ok
+envoi_formulaire.addEventListener("click", envoi);
 
+function envoi () {
+  if (prenom.value && nom.value && messagerie.value && naissance.value && nombre_tournois.value &&
+    ((villeNY.checked) || (villeSF.checked) || (villeSeattle.checked) ||
+(villeChicago.checked) ||(villeBoston.checked) ||(villePortland.checked)) && focuscgu.checked === true)
+
+//Affichage de la page de remerciement
+{container_formulaire.textContent = "Merci, votre formulaire nous a bien été transmis";
+container_formulaire.style.height = "700px";
+container_formulaire.style.paddingTop = "200px";
+container_formulaire.style.paddingLeft = "100px";
+container_formulaire.style.paddingRight = "100px";
+bouton_fermer.style.display = "block";
+bouton_fermer.addEventListener("click", closeModal);
+}
+};
