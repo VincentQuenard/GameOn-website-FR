@@ -25,11 +25,11 @@ const erreur_naissance = document.getElementById('erreur_anniversaire');
 const nombre_tournois = document.getElementById('quantity');
 const erreur_nbTournois = document.getElementById('erreur_nombre');
 const villeNY = document.getElementById('location1');
-const villeSF = document.getElementById('location1');
-const villeSeattle = document.getElementById('location1');
-const villeChicago = document.getElementById('location1');
-const villeBoston = document.getElementById('location1');
-const villePortland = document.getElementById('location1');
+const villeSF = document.getElementById('location2');
+const villeSeattle = document.getElementById('location3');
+const villeChicago = document.getElementById('location4');
+const villeBoston = document.getElementById('location5');
+const villePortland = document.getElementById('location6');
 const erreur_ville = document.getElementById('erreur_ville');
 const focuscgu = document.getElementById('checkbox1');
 const erreur_cgu = document.getElementById('erreur_cgu');
@@ -40,8 +40,7 @@ const formulaire = document.getElementById('formulaire')
 const regexLettres = /^[a-zA-Z-\s]+$/;
 const regNombres = /^[0-9]+$/;
 const regexMessagerie = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
-const regexDateNaissance = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
-/*/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/;*/
+const regexDateNaissance = /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/;
 // listener bouton ouverture formulaire
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -58,30 +57,27 @@ function closeModal() {
   modalbg.style.display = "none";
 
 }
-//Vérifications formulaires
-//on écoute le submit    VALIDATE NE FONCTIONNE PAS..........
-/*formulaire[0].addEventListener("submit", validate)
-function validate(e){ */
+//Vérifications entrées formulaire
+
   formulaire.addEventListener("submit", soumettre);
   function soumettre(e){
-//verification champ prénom non vide
-
+  //verification champ prénom non vide
   if (prenom.value ===0 || prenom.value.length <=2)//le prénom est vide ou à moins de 2 charactères
   {erreur_prenom.textContent="Le prénom doit comporter 2 charactères minimum.";
-  erreur_prenom.style.fontSize = "16px";
+  erreur_prenom.style.fontSize = "14px";
   erreur_prenom.style.color = "red";
 }else{
-  erreur_prenom.textContent="" //pas d'erreur donc pas de message
+  erreur_prenom.textContent=""; //pas d'erreur donc pas de message
 }
 
 //verification champ nom non vide
 
   if (nom.value ===0 || nom.value.length <=2)//le prénom est vide ou à moins de 2 charactères
   {erreur_nom.textContent="Le nom doit comporter 2 charactères minimum."
-  erreur_nom.style.fontSize = "16px";
+  erreur_nom.style.fontSize = "14px";
   erreur_nom.style.color = "red";
 }else{
-  erreur_nom.textContent="" //pas d'erreur donc pas de message
+  erreur_nom.textContent="";//pas d'erreur donc pas de message
 };
 
 
@@ -90,11 +86,10 @@ function validate(e){ */
   if(regexMessagerie.test(messagerie.value)){// test regex ok
     erreur_messagerie.textContent ="";
     // Pas d'erreur
- 
   }
   else{// Caractère absent ou ne répondant pas aux conditions du regex
     erreur_messagerie.textContent ="Veuillez entrer une adresse de messagerie valide";
-    erreur_messagerie.style.fontSize = "16px";
+    erreur_messagerie.style.fontSize = "14px";
     erreur_messagerie.style.color = "red";
       
 };
@@ -108,29 +103,35 @@ function validate(e){ */
     }
   else{// Caractère absent ou ne répondant pas aux conditions du regex
     erreur_naissance.textContent ="Veuillez entrer une date de naissance valide";
-    erreur_naissance.style.fontSize = "16px";
+    erreur_naissance.style.fontSize = "14px";
     erreur_naissance.style.color = "red";
     
 };
 
 //verification nombre de tournois compris entre 0 et 99
 
- if (nombre_tournois.value === "")
-  {erreur_nbTournois.textContent="Vous devez entrer un nombre dans ce champ";
-  erreur_nbTournois.style.fontSize = "16px";
+ if (nombre_tournois.value === ""){
+  erreur_nbTournois.textContent="Vous devez entrer un nombre dans ce champ";
+  erreur_nbTournois.style.fontSize = "14px";
   erreur_nbTournois.style.color = "red";
-     }
+  }
   else
   {
     erreur_nbTournois.textContent=""
   };
 
-//Un bouton radio est séléctionné par défaut
+//On teste si une des villes est coché sinon message d'erreur
+if((villeNY.checked) || (villeSF.checked) || (villeSeattle.checked) ||
+(villeChicago.checked) ||(villeBoston.checked) ||(villePortland.checked)){
+  erreur_ville.textContent ="";
+}else{
+  erreur_ville.textContent="Vous devez sélectionner une ville";
+  erreur_ville.style.fontSize = "14px";
+  erreur_ville.style.color = "red";
+}
 
-document.querySelector('#location1').checked = true;
-
-
-
+//CGU cochée par défaut
+focuscgu.checked === true
 
 //vérification si cgu cochée
  if (focuscgu.checked)
@@ -140,9 +141,11 @@ document.querySelector('#location1').checked = true;
  else
  {
   erreur_cgu.textContent="Vous devez accepter les conditions d'utilisation";
-  erreur_cgu.style.fontSize = "16px";
+  erreur_cgu.style.fontSize = "14px";
   erreur_cgu.style.color = "red"
- 
+  }
+  e.preventDefault();//bloque l'envoi automatique du formulaire s'il n'est pas correctement rempli
 }
-  e.preventDefault();//bloque l'envoi si le formulaire n'est pas correctement rempli
- }
+
+
+
