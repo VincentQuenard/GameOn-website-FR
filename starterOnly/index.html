@@ -62,13 +62,17 @@
               action="index.html"
               method="get"
               id="formulaire"
+              novalidate
             >
+
+            <!--Champ prénom-->
               <div class="formData">
                 <label for="first">Prénom</label><br />
                 <input class="text-control" type="text" id="first" name="first"/>
                 <span id="erreur_prenom"></span>
               </div>
 
+            <!--Champ nom-->
               <div class="formData">
                 <label for="last">Nom</label> 
                   <input class="text-control" type="text" id="last" name="last" minlength="2"/>
@@ -76,18 +80,21 @@
                 <span id="erreur_nom"></span>
               </div>
 
+            <!--Champ email-->
               <div class="formData">
                 <label for="email">E-mail</label>
                 <input class="text-control" type="email" id="email" name="email"/>
                   <span id="erreur_email"></span>
               </div>
 
+              <!--Champ date de naissance-->
               <div class="formData">
                 <label for="birthdate">Date de naissance</label>
                 <input class="text-control" type="date" id="birthdate" name="birthdate"/>
                   <span id="erreur_anniversaire"></span>
               </div>
 
+              <!--Champ nombre de tournois joués-->
               <div class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br />
                 <input type="number" class="text-control" 
@@ -95,6 +102,7 @@
                 <span id="erreur_nombre"></span>
               </div>
 
+              <!--Boutons radio des villes-->
               <p class="text-label">Quelles villes ?</p>
                
               <span id="erreur_ville"></span>
@@ -165,6 +173,7 @@
                   Portland</label>
               </div>
 
+              <!--case CGU-->
               <div class="formData">
                 <input
                   class="checkbox-input"
@@ -176,6 +185,8 @@
                 </label>
                 <br />
                 <span id="erreur_cgu"></span>
+
+                <!--Coche pour être prévenu prochains evements-->
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
@@ -183,6 +194,8 @@
                 </label>
                 <br /> 
               </div>
+
+              <!--bouton soumettre du formulaire-->
               <input
                 class="btn-submit"
                 type="submit"
@@ -192,6 +205,8 @@
             </form>
             <!--Fin des champs du formulaire d'inscription-->
           </div>
+
+        <!--Ajout du bouton de fermeture de la page de remerciement-->
           <input
           class="btn-fermer"
           type="submit"
@@ -202,7 +217,7 @@
     </main>
     <footer>
       <p class="copyrights">
-        Copyright 2014 - 2020, GameOn Inc.
+        Copyright 2014 - 2021, GameOn Inc.
       </p>
     </footer>
     <script src="modal.js"></script>

@@ -40,8 +40,10 @@ const bouton_fermer = document.querySelector('.btn-fermer')
 
 
 //Regex
+const regexLettres = /^[a-zA-Z-\s]+$/;
 const regexMessagerie = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
 const regexDateNaissance = /^((19[3-9]+[0-9]|200[0-9])-(0?[1-9]|1[0-2])-(0?[1-9]|[12]\d|3[01])|(0?[1-9]|[12]\d|3[01])[/](0?[1-9]|1[0-2])[/](19[3-9]+[0-9]|200[0-6]))$/;
+
 // listener bouton ouverture formulaire
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -62,19 +64,19 @@ function closeModal() {
 
   formulaire.addEventListener("submit", soumettre);
   function soumettre(e){
-  //verification champ prénom non vide
-  if (prenom.value ===0 || prenom.value.length <=2)//le prénom est vide ou à moins de 2 charactères
-  {erreur_prenom.textContent="Le prénom doit comporter 2 charactères minimum.";
+  /*verification le prénom est vide ou à moins de 2 charactères ou contient des chiffres*/
+  if (prenom.value ===0 || prenom.value.length <=2 || regexLettres.test(prenom.value) == false)
+  {erreur_prenom.textContent="Le prénom doit comporter 2 charactères minimum sans accent et uniquement des lettres.";
   erreur_prenom.style.fontSize = "14px";
   erreur_prenom.style.color = "red";
 }else{
   erreur_prenom.textContent=""; //pas d'erreur donc pas de message
 }
 
-//verification champ nom non vide
+/*verification le nom est vide ou à moins de 2 charactères ou contient des chiffres*/
 
-  if (nom.value ===0 || nom.value.length <=2)//le prénom est vide ou à moins de 2 charactères
-  {erreur_nom.textContent="Le nom doit comporter 2 charactères minimum."
+  if (nom.value ===0 || nom.value.length <=2 || regexLettres.test(nom.value)==false)
+  {erreur_nom.textContent="Le nom doit comporter 2 charactères minimum sans accent et uniquement des lettres."
   erreur_nom.style.fontSize = "14px";
   erreur_nom.style.color = "red";
 }else{
@@ -84,15 +86,14 @@ function closeModal() {
 
 //verification email valide
 
-  if(regexMessagerie.test(messagerie.value)){// test regex ok
+  if(regexMessagerie.test(messagerie.value)){// test regex mail ok
     erreur_messagerie.textContent ="";
     // Pas d'erreur
   }
   else{// Caractère absent ou ne répondant pas aux conditions du regex
     erreur_messagerie.textContent ="Veuillez entrer une adresse de messagerie valide";
     erreur_messagerie.style.fontSize = "14px";
-    erreur_messagerie.style.color = "red";
-      
+    erreur_messagerie.style.color = "red";  
 };
 
 
@@ -106,8 +107,8 @@ function closeModal() {
     erreur_naissance.textContent ="Veuillez entrer une date de naissance valide";
     erreur_naissance.style.fontSize = "14px";
     erreur_naissance.style.color = "red";
-    
 };
+
 
 //verification nombre de tournois compris entre 0 et 99
 
@@ -120,6 +121,7 @@ function closeModal() {
   {
     erreur_nbTournois.textContent=""
   };
+
 
 //On teste si une des villes est coché sinon message d'erreur
 if((villeNY.checked) || (villeSF.checked) || (villeSeattle.checked) ||
