@@ -41,7 +41,7 @@ const bouton_fermer = document.querySelector('.btn-fermer')
 
 //Regex
 const regexMessagerie = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
-const regexDateNaissance = /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/;
+const regexDateNaissance = /^((19[3-9]+[0-9]|200[0-9])-(0?[1-9]|1[0-2])-(0?[1-9]|[12]\d|3[01])|(0?[1-9]|[12]\d|3[01])[/](0?[1-9]|1[0-2])[/](19[3-9]+[0-9]|200[0-6]))$/;
 // listener bouton ouverture formulaire
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -150,9 +150,7 @@ focuscgu.checked === true
 
 
 //Envoi formulaire au clic sur c'est parti si tout le formulaire est ok
-envoi_formulaire.addEventListener("click", envoi);
-
-function envoi () {
+envoi_formulaire.addEventListener("click", function() {
   if (prenom.value && nom.value && messagerie.value && naissance.value && nombre_tournois.value &&
     ((villeNY.checked) || (villeSF.checked) || (villeSeattle.checked) ||
 (villeChicago.checked) ||(villeBoston.checked) ||(villePortland.checked)) && focuscgu.checked === true)
@@ -167,4 +165,4 @@ container_formulaire.style.paddingRight = "100px";
 bouton_fermer.style.display = "block";
 bouton_fermer.addEventListener("click", closeModal);
 }
-};
+});
