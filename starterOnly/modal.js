@@ -40,8 +40,6 @@ const bouton_fermer = document.querySelector('.btn-fermer')
 
 
 //Regex
-const regexLettres = /^[a-zA-Z-\s]+$/;
-const regNombres = /^[0-9]+$/;
 const regexMessagerie = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
 const regexDateNaissance = /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/;
 // listener bouton ouverture formulaire
@@ -161,8 +159,9 @@ function envoi () {
 
 //Affichage de la page de remerciement
 {container_formulaire.textContent = "Merci, votre formulaire nous a bien été transmis";
+container_formulaire.style.fontFamily = "DM Sans";
 container_formulaire.style.height = "700px";
-container_formulaire.style.paddingTop = "200px";
+container_formulaire.style.paddingTop = "300px";
 container_formulaire.style.paddingLeft = "100px";
 container_formulaire.style.paddingRight = "100px";
 bouton_fermer.style.display = "block";

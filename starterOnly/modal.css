@@ -341,6 +341,7 @@ input[data-error]::after {
 }
 .btn-fermer {
   display: none;
+  margin-bottom: 100px;
 }
 
 /* custom select styles */
